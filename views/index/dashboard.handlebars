@@ -1,0 +1,33 @@
+{{#if member}}
+<h4 class="text-center">Membres de la promotion</h4> <br>
+<small>{{c}}</small>
+<hr>  
+<input class="form-control offset-md-4 col-md-4 live-search-box" type="text" placeholder="Rechercher un membre">
+<div class="row">
+    {{#each members}}
+      <div class="col-xs-4 col-sm-4 col-md-4 p-1 mb-3 live-search-list"> 
+           <img class="card-img-top mx-auto d-block" src="https://robohash.org/set_set1/{{matricule}}.png" alt="Card image cap">
+        <div class="card border border-secondary relative">
+          <div class="absolute edit-btn">{{{editIcon id ../member.id id}}}</div>
+          <div class="card-body card-body-cascade">
+            <h5 class="text-center">{{nom}} {{prenoms}}</h5>
+            <p class="card-text">
+              <img src="/img/icons8-cute-cake-80.png" alt=""> : {{#if dateNaiss}}{{formatDate dateNaiss "Do MMMM"
+              "fr"}}{{/if}}<br>
+              <img src="/img/icons8-briefcase-80.png" alt=""> : {{profession}}<br>
+              <img src="/img/icons8-office-phone-80.png" alt=""> : {{contact.telephone}}<br>
+              <img src="/img/icons8-nokia-3310-80.png" alt=""> : {{contact.cellulaire}}<br>
+              <img src="/img/icons8-email-80.png" alt=""> : {{contact.email}}<br>
+            </p>
+              {{#equal ../member.admin true}}
+                 <div class="absolute delete-btn">{{{deleteIcon ../member.admin id}}}</div>
+              {{/equal}}
+          </div>
+        </div>
+      </div>
+    {{/each}}
+
+</div>
+{{else}}
+<p>Vous n'êtes pas connecté.</p>
+{{/if}}

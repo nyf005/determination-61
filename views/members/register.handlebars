@@ -1,0 +1,93 @@
+{{!-- {{#if member}} --}}
+
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <div class="card card-body">
+      <img src="/img/icons8-id-business-man-with-beard-80.png" alt="logo" class="logo">
+      <h3 class="text-center">Mes Informations</h3>
+      <form action="/members/{{member.id}}?_method=PUT" method="POST">
+        <div class="row">
+          <div class="form-group col-sm-4">
+            <label for="matricule">Matricule</label>
+            <input type="number" class="form-control" name="matricule" value="{{member.matricule}}" disabled>
+          </div>
+          <div class="form-group col-sm-4">
+            <label for="lastName">Nom</label>
+            <input type="text" class="form-control" name="lastName" value="{{member.nom}}" disabled>
+          </div>
+          <div class="form-group col-sm-4">
+            <label for="firstName">Prénoms</label>
+            <input type="text" class="form-control" name="firstName" value="{{member.prenoms}}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="password">Mot De Passe</label>
+            <input type="password" class="form-control" name="password" value="{{member.password}}">
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="confirm_password">Confirmer Mot De Passe</label>
+            <input type="password" class="form-control" name="confirm_password" value="{{member.password}}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="dateNaiss">Né le</label>
+            {{#if member.dateNaiss}}
+            <input type="date" class="form-control" name="dateNaiss" value="{{dateFormat member.dateNaiss "YYYY-MM-DD"}}">
+            {{else}}
+            <input type="date" class="form-control" name="dateNaiss" value="">
+            {{/if}}
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="lieuNaiss">À</label>
+            <input type="text" class="form-control" name="lieuNaiss" value="{{member.lieuNaiss}}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="profession">Profession</label>
+            <input type="text" class="form-control" name="profession" value="{{member.profession}}">
+          </div>
+
+          <div class="form-group col-sm-6">
+            <label for="situationM">Situation Matrimoniale</label>
+            <div class="input-group mb-3">
+              <select class="custom-select" name="situationM">
+                {{#select member.situationMatri}}
+                <option>Sélectionner...</option>
+                <option value="celibataire">Célibataire</option>
+                <option value="marie">Marié</option>
+                {{/select}}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-4">
+            <label for="telephone">Téléphone</label>
+            <input type="text" class="form-control" name="telephone" value="{{member.contact.telephone}}">
+          </div>
+          <div class="form-group col-sm-4">
+            <label for="cellulaire">Céllulaire</label>
+            <input type="text" class="form-control" name="cellulaire" value="{{member.contact.cellulaire}}">
+          </div>
+          <div class="form-group col-sm-4">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" name="email" value="{{member.contact.email}}">
+          </div>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Valider">
+      </form>
+    </div>
+  </div>
+</div>
+{{!-- {{else}}
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Accès Interdit</h4>
+  <p>Vous ne pouvez pas accéder au contenu de cette page.</p>
+  <hr>
+  <p class="mb-0">Vous devez vous identifier ou vous connecter pour y accéder.</p>
+</div>
+{{/if}} --}}

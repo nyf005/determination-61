@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-sm navbar-expand-md navbar-expand-lg navbar-dark bg-dark mb-3">
+  <div class="container">
+    <a class="navbar-brand" href="/">61° Promotion <br> Reconciliation</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/index">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/index/about">A Propos</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        {{#if member.password}}
+          <li class="nav-item">
+            <a href="/members/register/{{member.id}}" class="nav-link">Mes Infos</a>
+          </li>
+          <li class="nav-item">
+            <a href="/index/dashboard" class="nav-link">La Promo</a>
+          </li>
+
+            {{#if member.admin}}
+              <li class="nav-item">
+                <a href="/members/create" class="nav-link">| Ajouter Membre |</a>
+              </li>
+            {{/if}} 
+
+          <li class="nav-item">
+            <a href="/members/logout" class="nav-link">Se Déconnecter</a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a href="/members/identification" class="nav-link">S'identifier</a>
+          </li>
+          <li class="nav-item">
+            <a href="/members/login" class="nav-link">Se Connecter</a>
+          </li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>

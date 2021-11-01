@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <div class="card card-body">
+      <img src="/img/icons8-touch-id-80.png" alt="logo" class="logo">
+      <h3 class="text-center">S'identifier</h3>
+      <form method="POST" action="/members/identification">
+        <div class="form-group">
+          <label for="lastName">Nom de famille</label>
+          <input type="text" class="form-control" required name="lastName">
+        </div>
+        <div class="form-group">
+          <label for="matricule">Matricule</label>
+          <input type="number" class="form-control" required name="matricule">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Valider">
+      </form>
+    </div>
+  </div>
+</div>
